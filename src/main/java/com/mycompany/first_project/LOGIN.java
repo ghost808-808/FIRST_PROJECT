@@ -48,10 +48,10 @@ public class LOGIN {
      System.out.println("Password is captured");
     
     }else{
-    //assign true
-    Found = true;
-    //message
-    System.out.println("Password is not captured");
+      //assign true
+      Found = false;
+      //message
+      System.out.println("Password is not captured");
     }
     return Found;
     }
