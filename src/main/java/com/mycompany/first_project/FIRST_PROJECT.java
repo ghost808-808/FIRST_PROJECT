@@ -27,7 +27,7 @@ public class FIRST_PROJECT {
         //use do while
         do {
          //promt
-         System.out.println("enter useranme: ");
+         System.out.println("enter username: ");
          username = user_input.nextLine();
          
         }while(!check_all.CheckUsername(username));
