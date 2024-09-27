@@ -22,7 +22,7 @@ public class FIRST_PROJECT {
         
         //promting the username and password
         String username = "dawg_9";
-        String password = "Roseproject9*";
+        String password = "Rproject9*";
         
         //use do while
         do {
