@@ -21,6 +21,8 @@ public class FIRST_PROJECT {
         Scanner user_input = new Scanner(System.in);
         
         //promting the username and password
+        String firstname = "";
+        String lastname = "";
         String username = "";
         String password = "";
         
@@ -40,5 +42,15 @@ public class FIRST_PROJECT {
          
         }while(!check_all.checkPassword(password));
         
+        System.out.print("enter firstname:");
+        firstname = user_input.next();
+        System.out.print("enter lastname:");
+        lastname = user_input.next();
+        
+        do{
+        System.out.println("welcome," + firstname + lastname);
+        }
+        while(!check_all.CheckUsername(username));
     }
+      
 }
