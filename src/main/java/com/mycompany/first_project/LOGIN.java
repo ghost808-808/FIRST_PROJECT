@@ -55,7 +55,35 @@ public class LOGIN {
     }
     return Found;
     }
-}
+    
+     private String registeredUsername;
+     private String registeredPassword;
+     
+     public String registerUser(String username, String password){
+      if (!username.matches("[a-zA-z0-9]{1,5}") && (!username.contains("_"))){
+      return "username is incorrectly formated";
+      }
+      if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()]"))))){
+      return "password does not meet the requirements";
+      }
+      registeredUsername = username;
+      registeredPassword = password;
+      return "user has been registered successfully";
+      
+    }
+     public boolean loginUser(String username, String password){
+     return username.equals(registeredUsername) && password.equals(registeredPassword);
+     
+     }
+     public String returnLoginStatus(String username, String password){
+      if (loginUser(username, password)){
+      return "login successful";
+      }else{
+       return "login failed";
+               } 
+     }
+    }
+
     
 
     
