@@ -16,7 +16,7 @@ public class LOGIN {
     boolean Found = false;
     
     //check the username 
-    if(username.contains("_")){
+    if(username.contains("_") && (username.length() <= 5)){
     //then assign to true
     Found = true;
     //message
@@ -34,14 +34,14 @@ public class LOGIN {
     public boolean checkPassword(String password){
     //pattern regex
     Pattern check_num = Pattern.compile("[0123456789]");
-    Pattern check_specials = Pattern.compile("!`~@#$%^&*:;'_-/,");
+    Pattern check_specials = Pattern.compile("[!@#$%^&*()-_]");
     Pattern check_uppercase = Pattern.compile("[QWERTYUIOPASDFGHJKLZXCVBNM]");
     
     //temp variables
     boolean Found = false;
     
     //check all here 
-    if(check_num.matcher(password).find() && check_specials.matcher(password).find() && check_uppercase.matcher(password).find()){
+    if(check_num.matcher(password).find() && check_specials.matcher(password).find() && check_uppercase.matcher(password).find() && (password.length() >= 8)){
      //assign true
      Found = true;
      //message

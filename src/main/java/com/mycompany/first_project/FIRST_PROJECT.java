@@ -21,8 +21,8 @@ public class FIRST_PROJECT {
         Scanner user_input = new Scanner(System.in);
         
         //promting the username and password
-        String username = "dawg_9";
-        String password = "Rproject9*";
+        String username = "";
+        String password = "";
         
         //use do while
         do {
