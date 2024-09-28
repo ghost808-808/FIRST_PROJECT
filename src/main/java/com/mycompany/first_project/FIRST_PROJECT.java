@@ -4,6 +4,7 @@
 
 package com.mycompany.first_project;
 
+
 import java.util.*;
 
 /**
@@ -42,15 +43,15 @@ public class FIRST_PROJECT {
          
         }while(!check_all.checkPassword(password));
         
-        System.out.print("enter firstname:");
-        firstname = user_input.next();
-        System.out.print("enter lastname:");
-        lastname = user_input.next();
+        System.out.println("enter firstname:");
+        firstname = user_input.nextLine();
+        System.out.println("enter lastname:");
+        lastname = user_input.nextLine();
         
-        do{
+        
         System.out.println("welcome," + firstname + lastname);
-        }
-        while(!check_all.CheckUsername(username));
     }
+    
+        
       
 }
