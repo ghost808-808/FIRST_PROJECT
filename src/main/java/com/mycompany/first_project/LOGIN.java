@@ -60,7 +60,7 @@ public class LOGIN {
      private String registeredPassword;
      
      public String registerUser(String username, String password){
-      if (!username.matches("[a-zA-z0-9]{1,5}") && (!username.contains("_"))){
+      if (!username.matches("^[a-zA-z0-9_]{1,5}$") && (!username.contains("_"))){
       return "username is incorrectly formated";
       }
       if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()]"))))){
