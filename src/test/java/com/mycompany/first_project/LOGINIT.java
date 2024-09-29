@@ -72,8 +72,8 @@ public class LOGINIT {
     @Test
     public void testRegisterUser() {
         System.out.println("registerUser");
-        String username = "rbb_1";
-        String password = "Dkkkokk!1";
+        String username = "big_1";
+        String password = "DozyyyEr!5";
         LOGIN instance = new LOGIN();
         String expResult = "false";
         String result = instance.registerUser(username, password);
@@ -88,10 +88,10 @@ public class LOGINIT {
     @Test
     public void testLoginUser() {
         System.out.println("loginUser");
-        String username = "rbb_1";
-        String password = "Dkkkokk!1";
+        String username = "big_1";
+        String password = "DozyyyEr!5";
         LOGIN instance = new LOGIN();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.loginUser(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -104,8 +104,8 @@ public class LOGINIT {
     @Test
     public void testReturnLoginStatus() {
         System.out.println("returnLoginStatus");
-        String username = "rbb_1";
-        String password = "Dkkkokkk!1";
+        String username = "big_1";
+        String password = "DozyyyEr!5";
         LOGIN instance = new LOGIN();
         String expResult = "false";
         String result = instance.returnLoginStatus(username, password);

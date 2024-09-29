@@ -27,6 +27,7 @@ public class FIRST_PROJECT {
         String username = "";
         String password = "";
         
+        
         //use do while
         do {
          //promt
@@ -52,7 +53,7 @@ public class FIRST_PROJECT {
         
         System.out.println(check_all.registerUser("user_", "password"));
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
-        System.out.println(check_all.returnLoginStatus("user_", "wrongpass"));
+        
         
     }
     

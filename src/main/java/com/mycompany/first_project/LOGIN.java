@@ -25,7 +25,7 @@ public class LOGIN {
         //assign to false
         Found = false;
         //message 
-        System.out.println("Username is not captured");
+        System.out.println("Username is not correctly formatted, please ensure that your username contains an underscore and is no  more than 5 characters long.");
     }
     return Found;
     }
@@ -45,13 +45,13 @@ public class LOGIN {
      //assign true
      Found = true;
      //message
-     System.out.println("Password is captured");
+     System.out.println("Password successfully captured");
     
     }else{
       //assign true
       Found = false;
       //message
-      System.out.println("Password is not captured");
+      System.out.println("Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.");
     }
     return Found;
     }
@@ -66,11 +66,13 @@ public class LOGIN {
       if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()]"))))){
       return "password does not meet the requirements";
       }
-      registeredUsername = username;
-      registeredPassword = password;
-      return "user has been registered successfully";
-      
-    }
+      this.registeredPassword = password;
+      this.registeredUsername = username;
+     return "user has been registered successfully";
+      }
+     
+     
+     
      //login user
      public boolean loginUser(String username, String password){
      return username.equals(registeredUsername) && password.equals(registeredPassword);
@@ -78,11 +80,11 @@ public class LOGIN {
      }
      //returning login status
      public String returnLoginStatus(String username, String password){
-      if (loginUser(username, password)){
+      if (username.equals(registeredUsername) && (password.equals(registeredPassword))){
       return "login successful";
       }else{
        return "login failed";
-               } 
+       } 
      }
     }
 
