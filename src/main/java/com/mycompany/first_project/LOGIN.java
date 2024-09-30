@@ -60,27 +60,26 @@ public class LOGIN {
      private String registeredPassword;
      
      public String registerUser(String username, String password){
-      if (!username.matches("[a-zA-z0-9_]{1,5}") && (!username.contains("_"))){
+      if (username.length()>5 && (!username.contains("_"))){
       return "username is incorrectly formated";
       }
-      if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()]"))))){
+      if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()-_]"))))){
       return "password does not meet the requirements";
       }
-      this.registeredPassword = password;
-      this.registeredUsername = username;
-     return "user has been registered successfully";
+      registeredPassword = password;
+      registeredUsername = username;
+      
+      return "user has been registered successfully";
       }
-     
-     
      
      //login user
      public boolean loginUser(String username, String password){
-     return username.equals(registeredUsername) && password.equals(registeredPassword);
+       return username.equals(registeredUsername) && password.equals(registeredPassword);
      
      }
      //returning login status
      public String returnLoginStatus(String username, String password){
-      if (username.equals(registeredUsername) && (password.equals(registeredPassword))){
+      if (loginUser(username, password)){
       return "login successful";
       }else{
        return "login failed";

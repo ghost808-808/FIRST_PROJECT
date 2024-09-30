@@ -104,10 +104,10 @@ public class LOGINIT {
     @Test
     public void testReturnLoginStatus() {
         System.out.println("returnLoginStatus");
-        String username = "big_1";
+        String username = "big_";
         String password = "DozyyyEr!5";
         LOGIN instance = new LOGIN();
-        String expResult = "false";
+        String expResult = "true";
         String result = instance.returnLoginStatus(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

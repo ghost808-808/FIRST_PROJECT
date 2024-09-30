@@ -21,13 +21,17 @@ public class FIRST_PROJECT {
         //object for our scanner
         Scanner user_input = new Scanner(System.in);
         
-        //promting the username and password
+        //declarations
         String firstname = "";
         String lastname = "";
         String username = "";
         String password = "";
         
-        
+        //prompts
+        System.out.println("enter firstname:");
+        firstname = user_input.nextLine();
+        System.out.println("enter lastname:");
+        lastname = user_input.nextLine();
         //use do while
         do {
          //promt
@@ -44,13 +48,9 @@ public class FIRST_PROJECT {
          
         }while(!check_all.checkPassword(password));
         
-        System.out.println("enter firstname:");
-        firstname = user_input.nextLine();
-        System.out.println("enter lastname:");
-        lastname = user_input.nextLine();
-        
-        System.out.println("welcome," + firstname + lastname);
-        
+        //display
+        System.out.println("welcome," + firstname + lastname + ",it is good to see you.");
+        //messages
         System.out.println(check_all.registerUser("user_", "password"));
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
         
