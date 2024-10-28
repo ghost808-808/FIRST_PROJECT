@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.first_project;
-import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
  *
  * @author RC_Student_lab
