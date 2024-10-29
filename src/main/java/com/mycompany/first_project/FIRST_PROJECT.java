@@ -58,6 +58,8 @@ public class FIRST_PROJECT {
         System.out.println(check_all.registerUser("user_", "password"));
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
         
+        //welcoming message
+        JOptionPane.showMessageDialog(dialog, "Welcome to EasyKanban");
         //PROMTING THE USER FOR NUMBER OF TASKS
         int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
         
@@ -94,6 +96,7 @@ public class FIRST_PROJECT {
             
                 case 0:
                     //ADD TASKS
+                    
                     break;
                 case 1:
                     //SHOW REPORT
