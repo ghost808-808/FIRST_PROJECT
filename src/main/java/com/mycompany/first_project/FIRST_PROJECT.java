@@ -7,8 +7,6 @@ package com.mycompany.first_project;
 
 import java.util.*;
 import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JDialog;
 
 /**
@@ -24,6 +22,7 @@ public class FIRST_PROJECT {
         
         //object for our scanner
         Scanner user_input = new Scanner(System.in);
+        //object for our JOption to appear
         final JDialog dialog = new JDialog();
         dialog.setAlwaysOnTop(true);
         //declarations
@@ -58,45 +57,58 @@ public class FIRST_PROJECT {
         //messages
         System.out.println(check_all.registerUser("user_", "password"));
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
-       
         
-       int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter number of tasks"));
-       List<Task> tasks = new ArrayList<>();
-       int taskNumber = 0;
-       double totalHours = 0;
-       
-       while(tasks.size()< numTasks){
-       
-           String taskName = JOptionPane.showInputDialog("Enter task name");
-           String taskDescription = JOptionPane.showInputDialog("Enter task description");
+        //PROMTING THE USER FOR NUMBER OF TASKS
+        int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
+        
+        //
+        Task[] tasks = new Task[numTasks];
+        int totalHours = 0;
+        for(int i = 0; i < numTasks; i++){
           
+            String taskName = JOptionPane.showInputDialog("Enter task name:");
+            String taskDescription = JOptionPane.showInputDialog("Enter task description:");
+            while (taskDescription.length() > 50){
+            taskDescription = JOptionPane.showInputDialog("Please enter a task description of less than 50 characters:");
+            }
+            if (taskDescription.length() <= 50){
+            JOptionPane.showMessageDialog(dialog, "Task successfully captured");
+            }
+            String developerDetails = JOptionPane.showInputDialog("Enter developer details:");
+            int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter task duration:"));
+            String[] options = {"To Do", "Done", "Doing"};
+            int selection = JOptionPane.showOptionDialog(dialog, "Select task status:", "Task Status",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            String taskStatus = options[selection];
+            tasks[i] = new Task(taskName, i, taskDescription, developerDetails, taskDuration, taskStatus);
+            JOptionPane.showMessageDialog(dialog, tasks[i].printTaskDetails());
+            totalHours +=
+                    tasks[i].returnTotalHours();
+        }
+        JOptionPane.showMessageDialog(dialog, "Total Hours:" + totalHours);
+        int choice;
+        do{
+            // THE NUMERIC MENU
+            Object[] options = {"Add Tasks", "Show Report", "Quit"};
+            choice = JOptionPane.showOptionDialog(dialog, "Select an option:", "Task Manager", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            switch (choice){
+            
+                case 0:
+                    //ADD TASKS
+                    break;
+                case 1:
+                    //SHOW REPORT
+                    JOptionPane.showMessageDialog(dialog, "Coming soon");
+                    break;
+                case 2:
+                    //QUIT
+                    System.exit(0);
+                    break;
+            
+            }
+        }while(choice != 2);
        
-       while(taskDescription.length() > 50){
         
-           JOptionPane.showMessageDialog(dialog, "Please enter a task description of less than 50 characters");
-           taskDescription = JOptionPane.showInputDialog("Enter task description");
-           
-       }
-       JOptionPane.showMessageDialog(dialog, "Task successfully captured");
-       String developerDetails = JOptionPane.showInputDialog("Enter developer's first and last name");
-       double taskDuration = Double.parseDouble(JOptionPane.showInputDialog("Enter task duration in hours"));
-       totalHours += taskDuration;
-       
-       String[] statuses = {"To Do", "Done", "Doing"};
-       String taskStatus = (String)JOptionPane.showInputDialog(dialog, "Select task status", "Task Status", JOptionPane.QUESTION_MESSAGE, null, statuses, statuses[0]);
-       
-       Task task = new Task(taskName, taskNumber, taskDescription, developerDetails, taskDuration, taskStatus);
-       tasks.add(task);
-       
-       JOptionPane.showMessageDialog(dialog, task.toString());
-       taskNumber++;
-       
-       }
-       
-       JOptionPane.showMessageDialog(dialog, "Total hours across all tasks: " + totalHours);
-      
-        
-        dialog.dispose();
+    dialog.dispose();
     }
     
         

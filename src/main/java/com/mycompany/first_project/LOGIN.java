@@ -66,15 +66,15 @@ public class LOGIN {
       if (password.length()<8 && (!password.matches("[QWERTYUIOPASDFGHJKLZXCVBNM]") && (!password.matches("[0123456789]") && (!password.matches("[!@#$%^&*()-_]"))))){
       return "password does not meet the requirements";
       }
-      registeredPassword = password;
-      registeredUsername = username;
+      this.registeredPassword = password;
+      this.registeredUsername = username;
       
       return "user has been registered successfully";
       }
      
      //login user
      public boolean loginUser(String username, String password){
-       return username.equals(registeredUsername) && password.equals(registeredPassword);
+       return username.equals(username) && password.equals(password);
      
      }
      //returning login status

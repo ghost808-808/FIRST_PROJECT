@@ -23,21 +23,27 @@ public class Task {
      this.taskNumber = taskNumber;
      this.taskDescription = taskDescription;
      this.developerDetails = developerDetails;
-     this.taskID = generateTaskID(taskName, taskNumber, developerDetails);
+     this.taskID = createTaskID();
      this.taskStatus = taskStatus;
-    }
-    
-   private String generateTaskID(String taskName, int taskNumber, String developerDetails) {
-        String[] developerNames = developerDetails.split(" ");
-        return (taskName.substring(0, 2) + ":" + taskNumber + ":" + developerNames[developerNames.length - 1].substring(developerNames[developerNames.length - 1].length() - 3)).toUpperCase();
-    }
-   
-   public String toString(){
-    return"Task Status:" + taskStatus + "Developer Details:" + developerDetails + "Task Number:" + taskNumber + "Task Name:" + taskName + "Task Description:" + taskDescription + "Task ID:" + taskID + "Duration:" + taskDuration + "hours.";
-   
-   }
      
+    }
     
-
+    public boolean checkTaskDescription(){
+     return taskDescription.length() <= 50;
     
+    }
+    
+    public String createTaskID(){
+    return (taskName.substring(0,2).toUpperCase() + ":" + taskNumber + developerDetails.substring(developerDetails.length()-3).toUpperCase());
+    }
+    
+    public String printTaskDetails(){
+    return "Task Status:" + taskStatus + "Developer Details:" + developerDetails + "Task Number:" + taskNumber + "Task Name:" + taskName + "Task Description:" + taskDescription + "Task ID:" + taskID + "Duration" + taskDuration + "Hours";
+    }
+    
+    public int returnTotalHours(){
+     return (int) taskDuration;
+    }
+    
+        
 }
