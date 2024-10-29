@@ -89,7 +89,7 @@ public class FIRST_PROJECT {
         do{
             // THE NUMERIC MENU
             Object[] options = {"Add Tasks", "Show Report", "Quit"};
-            choice = JOptionPane.showOptionDialog(dialog, "Select an option:", "Task Manager", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            choice = JOptionPane.showOptionDialog(dialog, "Select an option:", "FIRST_PROJECT", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             switch (choice){
             
                 case 0:
