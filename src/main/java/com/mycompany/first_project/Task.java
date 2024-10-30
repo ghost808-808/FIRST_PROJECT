@@ -13,11 +13,11 @@ public class Task {
     int taskNumber;
     String taskDescription;
     String developerDetails;
-    double taskDuration;
+    int taskDuration;
     String taskID;
     String taskStatus;
     
-    public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, double taskDuration, String taskStatus){
+    public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, int taskDuration, String taskStatus){
         
      this.taskName = taskName;
      this.taskNumber = taskNumber;
@@ -38,11 +38,11 @@ public class Task {
     }
     
     public String printTaskDetails(){
-    return "Task Status:" + taskStatus + "Developer Details:" + developerDetails + "Task Number:" + taskNumber + "Task Name:" + taskName + "Task Description:" + taskDescription + "Task ID:" + taskID + "Duration" + taskDuration + "Hours";
+    return "Task Status:" + taskStatus + "\nDeveloper Details:" + developerDetails + "\nTask Number:" + taskNumber + "\nTask Name:" + taskName + "\nTask Description:" + taskDescription + "\nTask ID:" + taskID + "\nDuration:" + taskDuration + "Hours";
     }
     
     public int returnTotalHours(){
-     return (int) taskDuration;
+     return  taskDuration;
     }
     
         

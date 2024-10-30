@@ -59,34 +59,9 @@ public class FIRST_PROJECT {
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
         
         //welcoming message
-        JOptionPane.showMessageDialog(dialog, "Welcome to EasyKanban");
-        //PROMTING THE USER FOR NUMBER OF TASKS
-        int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
+        int totalHours = 0 ;
         
-        //
-        Task[] tasks = new Task[numTasks];
-        int totalHours = 0;
-        for(int i = 0; i < numTasks; i++){
-          
-            String taskName = JOptionPane.showInputDialog("Enter task name:");
-            String taskDescription = JOptionPane.showInputDialog("Enter task description:");
-            while (taskDescription.length() > 50){
-            taskDescription = JOptionPane.showInputDialog("Please enter a task description of less than 50 characters:");
-            }
-            if (taskDescription.length() <= 50){
-            JOptionPane.showMessageDialog(dialog, "Task successfully captured");
-            }
-            String developerDetails = JOptionPane.showInputDialog("Enter developer details:");
-            int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter task duration:"));
-            String[] options = {"To Do", "Done", "Doing"};
-            int selection = JOptionPane.showOptionDialog(dialog, "Select task status:", "Task Status",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            String taskStatus = options[selection];
-            tasks[i] = new Task(taskName, i, taskDescription, developerDetails, taskDuration, taskStatus);
-            JOptionPane.showMessageDialog(dialog, tasks[i].printTaskDetails());
-            totalHours +=
-                    tasks[i].returnTotalHours();
-        }
-        JOptionPane.showMessageDialog(dialog, "Total Hours:" + totalHours);
+        JOptionPane.showMessageDialog(dialog, "Welcome to EasyKanban");
         int choice;
         do{
             // THE NUMERIC MENU
@@ -96,7 +71,30 @@ public class FIRST_PROJECT {
             
                 case 0:
                     //ADD TASKS
-                    
+                    int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
+                    Task[] tasks = new Task[numTasks]; 
+                    for(int i = 0; i < numTasks; i++){
+          
+                    String taskName = JOptionPane.showInputDialog("Enter task name:");
+                    String taskDescription = JOptionPane.showInputDialog("Enter task description:");
+                    while (taskDescription.length() > 50){
+                    taskDescription = JOptionPane.showInputDialog("Please enter a task description of less than 50 characters:");
+                    }
+                    if (taskDescription.length() <= 50){
+                    JOptionPane.showMessageDialog(dialog, "Task successfully captured");
+                    }
+                    String developerDetails = JOptionPane.showInputDialog("Enter developer details(first and last name):");
+                    int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter task duration:"));
+                    String[] optionsadditional = {"To Do", "Done", "Doing"};
+                    int selection = JOptionPane.showOptionDialog(dialog, "Select task status:", "Task Status",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, optionsadditional, optionsadditional[0]);
+                    String taskStatus =  optionsadditional[selection];
+                    tasks[i] = new Task(taskName, i, taskDescription, developerDetails, taskDuration, taskStatus);
+                    JOptionPane.showMessageDialog(dialog, tasks[i].printTaskDetails());
+             
+                   totalHours += taskDuration;
+            
+        }
+                    JOptionPane.showMessageDialog(dialog, "Total Hours:" + totalHours);
                     break;
                 case 1:
                     //SHOW REPORT
@@ -109,6 +107,12 @@ public class FIRST_PROJECT {
             
             }
         }while(choice != 2);
+        //PROMTING THE USER FOR NUMBER OF TASKS
+        
+        
+        //
+        
+        
        
         
     dialog.dispose();
