@@ -34,11 +34,11 @@ public class Task {
     }
     
     public String createTaskID(){
-    return (taskName.substring(0,2).toUpperCase() + ":" + taskNumber + developerDetails.substring(developerDetails.length()-3).toUpperCase());
+    return (taskName.substring(0,2).toUpperCase() + ":" + taskNumber + ":" + developerDetails.substring(developerDetails.length()-3).toUpperCase());
     }
     
     public String printTaskDetails(){
-    return "Task Status:" + taskStatus + "\nDeveloper Details:" + developerDetails + "\nTask Number:" + taskNumber + "\nTask Name:" + taskName + "\nTask Description:" + taskDescription + "\nTask ID:" + taskID + "\nDuration:" + taskDuration + "Hours";
+    return "Task Status:" + taskStatus + "\nDeveloper Details:" + developerDetails + "\nTask Number:" + taskNumber + "\nTask Name:" + taskName + "\nTask Description:" + taskDescription + "\nTask ID:" + taskID + "\nDuration:" + taskDuration + "hours";
     }
     
     public int returnTotalHours(){

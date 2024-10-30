@@ -68,9 +68,10 @@ public class FIRST_PROJECT {
             Object[] options = {"Add Tasks", "Show Report", "Quit"};
             choice = JOptionPane.showOptionDialog(dialog, "Select an option:", "FIRST_PROJECT", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             switch (choice){
-            
+                 //ADD TASKS
                 case 0:
-                    //ADD TASKS
+                    
+                    //PROMTING THE USER FOR NUMBER OF TASKS
                     int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
                     Task[] tasks = new Task[numTasks]; 
                     for(int i = 0; i < numTasks; i++){
@@ -96,18 +97,20 @@ public class FIRST_PROJECT {
         }
                     JOptionPane.showMessageDialog(dialog, "Total Hours:" + totalHours);
                     break;
+                //SHOW REPORT
                 case 1:
-                    //SHOW REPORT
+                    // displaying the message
                     JOptionPane.showMessageDialog(dialog, "Coming soon");
                     break;
+                 //QUIT
                 case 2:
-                    //QUIT
+                    
                     System.exit(0);
                     break;
             
             }
         }while(choice != 2);
-        //PROMTING THE USER FOR NUMBER OF TASKS
+        
         
         
         //
