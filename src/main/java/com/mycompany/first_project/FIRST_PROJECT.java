@@ -58,9 +58,9 @@ public class FIRST_PROJECT {
         System.out.println(check_all.registerUser("user_", "password"));
         System.out.println(check_all.returnLoginStatus("user_", "password1"));
         
-        //welcoming message
+        //declaration
         int totalHours = 0 ;
-        
+         //welcoming message
         JOptionPane.showMessageDialog(dialog, "Welcome to EasyKanban");
         int choice;
         do{
@@ -74,6 +74,7 @@ public class FIRST_PROJECT {
                     //PROMTING THE USER FOR NUMBER OF TASKS
                     int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks:"));
                     Task[] tasks = new Task[numTasks]; 
+                    //loop to enter task details
                     for(int i = 0; i < numTasks; i++){
           
                     String taskName = JOptionPane.showInputDialog("Enter task name:");
@@ -95,6 +96,7 @@ public class FIRST_PROJECT {
                    totalHours += taskDuration;
             
         }
+                    //diplay total hours
                     JOptionPane.showMessageDialog(dialog, "Total Hours:" + totalHours);
                     break;
                 //SHOW REPORT
@@ -110,14 +112,7 @@ public class FIRST_PROJECT {
             
             }
         }while(choice != 2);
-        
-        
-        
-        //
-        
-        
-       
-        
+          
     dialog.dispose();
     }
     

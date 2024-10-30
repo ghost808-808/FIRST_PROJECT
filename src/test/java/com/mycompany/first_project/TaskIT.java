@@ -57,7 +57,7 @@ public class TaskIT {
     public void testCreateTaskID() {
         System.out.println("createTaskID");
         Task instance = null;
-        String expResult = "";
+        String expResult = "false";
         String result = instance.createTaskID();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
