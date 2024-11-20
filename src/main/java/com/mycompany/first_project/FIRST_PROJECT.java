@@ -14,9 +14,15 @@ import javax.swing.JDialog;
  * @author RC_Student_lab
  */
 public class FIRST_PROJECT {
-
-    
+// Arrays to store task details
+    static String[] developers = new String[100];
+    static String[] taskNames = new String[100];
+    static String[] taskID = new String[100];
+    static int[] taskDuration = new int[100];
+    static String[] taskStatuses = new String[100];
+    static int taskCount = 0;
       public static void main(String[] args) {
+          
         //login instance;
         LOGIN check_all = new LOGIN();
         
@@ -114,8 +120,94 @@ public class FIRST_PROJECT {
         }while(choice != 2);
           
     dialog.dispose();
+    
+    do{
+    System.out.println("Add Task");
+    System.out.println("Display task with status");
+    System.out.println("Display task with longest duration");
+    System.out.println("Search task by name");
+    System.out.println("Search task by developer");
+    System.out.println("Delete task by name");
+    System.out.println("Display all tasks");
+    System.out.println("Exit");
+    System.out.print("Enter your choice: ");
+    choice = user_input.nextInt();
+    user_input.nextLine();
+    
+    switch(choice){
+    
+        case 1:
+            addTask(user_input);
+            break;
+        case 2:
+            displayTasksWithStatusDone();
+            break;
+        case 3:
+            displayTaskWithLongestDuration();
+            break;
+        case 4:
+            searchTasksByName(user_input);
+            break;
+        case 5:
+            searchTasksByName(user_input);
+            break;
+        case 6:
+            deleteTaskByName(user_input);
+            break;
+        case 7:
+            displayAllTasks();
+            break;
+        case 8:
+            System.out.println("Exiting");
+            break;
+        default:
+            System.out.println("Invalid choice. Please try again");
     }
+    }while(choice !=8);
+    }
+    public static void addTask(Scanner user_input){
+    System.out.print("Enter developer name:");
+    developers[taskCount] = user_input.nextLine();
+    System.out.print("Enter task name:");
+    taskNames[taskCount] = user_input.nextLine();
+    System.out.print("Enter task ID: ");
+    taskID[taskCount] = user_input.nextLine();
+    System.out.print("Enter task duration: ");
+    taskDuration[taskCount] = user_input.nextInt();
+    user_input.nextLine(); // Consume newline
+    System.out.print("Enter task status: ");
+    taskStatuses[taskCount] = user_input.nextLine();
+    taskCount++;
+    System.out.println("Task added successfully.");
+    }
+    
+    public static void displayTasksWithStatusDone(){
+    System.out.println("Tasks with status 'Done':");
+    for (int i = 0; i < taskCount; i++){
+    if (taskStatuses[i].equalsIgnoreCase("Done")){
+        System.out.println("Developer:" + developers[i] + "Task Name:" + taskNames[i] + "Task Duration:" + taskDuration[i]);
+        }
+       }
+     }
+    
+    public static void displayTaskWithLongestDuration(){
+    int maxDurationIndex = 0;
+    for (int i = 1; i < taskCount; i++){
+    if (taskDuration[i] > taskDuration[maxDurationIndex]){
+    maxDurationIndex = i;
+    }
+    }
+    System.out.println("Task with longest duration:");
+    System.out.println("Developer:" + "Task Duration:" + taskDuration[maxDurationIndex]);
+    }
+    
+
+
+    
+    }
+
+
     
         
       
-}
+
